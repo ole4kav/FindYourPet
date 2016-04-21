@@ -20,9 +20,11 @@ import android.os.Environment;
 import android.provider.MediaStore;
 import android.provider.Settings;
 import android.support.v4.app.ActivityCompat;
+import android.support.v4.app.DialogFragment;
 import android.support.v7.app.AppCompatActivity;
 import android.util.TypedValue;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -48,6 +50,10 @@ public class FoundActivity extends AppCompatActivity
     private LocationManager locationManager;
     private LocationListener locationListener;
 
+    //private Looper myLooper;
+
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -60,6 +66,10 @@ public class FoundActivity extends AppCompatActivity
         petImageView = (ImageView) findViewById(R.id.dogImageView);
         locationTextView = (TextView) findViewById(R.id.locationEditText);
         dateTextView = (TextView) findViewById(R.id.dateEditText);
+
+        locationTextView.setOnFocusChangeListener(myFocus);
+        dateTextView.setOnFocusChangeListener(myFocus);
+
 
         locationManager = (LocationManager) getSystemService(LOCATION_SERVICE);
 
@@ -105,11 +115,10 @@ public class FoundActivity extends AppCompatActivity
         }
         else {
             globalLocation = locationManager.getLastKnownLocation(LocationManager.GPS_PROVIDER);
-
             if ((globalLocation == null) ) {
                 locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 500, 0, locationListener);
             }
-           else {
+            else {
                 Double latitude = globalLocation.getLatitude();
                 Double longitude = globalLocation.getLongitude();
 
@@ -196,7 +205,6 @@ public class FoundActivity extends AppCompatActivity
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-
         if (resultCode == RESULT_OK) {
             if (requestCode == REQUEST_CAMERA) {
                 Bitmap thumbnail = (Bitmap) data.getExtras().get("data");
@@ -216,8 +224,10 @@ public class FoundActivity extends AppCompatActivity
 
                 petImageView.setBackgroundResource(0);
                 petImageView.setImageBitmap(thumbnail);
-            }
+                petImageView.setAlpha(1.0f);
+          }
             else if (requestCode == SELECT_FILE) {
+
                 Uri selectedImageUri = data.getData();
                 String[] projection = {MediaStore.MediaColumns.DATA};
                 CursorLoader cursorLoader = new CursorLoader(this, selectedImageUri, projection, null, null, null);
@@ -233,22 +243,92 @@ public class FoundActivity extends AppCompatActivity
                 BitmapFactory.decodeFile(selectedImagePath, options);
                 final int REQUIRED_SIZE = 200;
                 int scale = 1;
-                while (options.outWidth / scale / 2 >= REQUIRED_SIZE && options.outHeight / scale / 2 >= REQUIRED_SIZE)
+                while (options.outWidth / scale / 2 >= REQUIRED_SIZE && options.outHeight / scale / 2 >= REQUIRED_SIZE) {
                     scale *= 2;
+                }
                 options.inSampleSize = scale;
                 options.inJustDecodeBounds = false;
                 bm = BitmapFactory.decodeFile(selectedImagePath, options);
 
                 petImageView.setBackgroundResource(0);
                 petImageView.setImageBitmap(bm);
+                petImageView.setAlpha(1.0f);
+
+
+                /*new AsyncTask<Intent, Void, String>()
+                {
+                    BitmapFactory.Options options = new BitmapFactory.Options();
+                        @Override
+                    protected String doInBackground(Intent... data) {
+                        //Looper.prepare();
+                        Uri selectedImageUri = data[0].getData();
+                        String[] projection = {MediaStore.MediaColumns.DATA};
+                        CursorLoader cursorLoader = new CursorLoader(getApplicationContext(), selectedImageUri, projection, null, null, null);
+                        Cursor cursor = cursorLoader.loadInBackground();
+                        int column_index = cursor.getColumnIndexOrThrow(MediaStore.MediaColumns.DATA);
+                        cursor.moveToFirst();
+                        String selectedImagePath = cursor.getString(column_index);
+                        options.inJustDecodeBounds = true;
+                        BitmapFactory.decodeFile(selectedImagePath, options);
+                        final int REQUIRED_SIZE = 200;
+                        int scale = 1;
+                        while (options.outWidth / scale / 2 >= REQUIRED_SIZE && options.outHeight / scale / 2 >= REQUIRED_SIZE) {
+                            scale *= 2;
+                        }
+                        options.inSampleSize = scale;
+                        options.inJustDecodeBounds = false;
+                        //myLooper = Looper.myLooper();
+                        //Looper.loop();
+                        //myLooper.quit();
+                        return null;
+                    }
+                    @Override
+                    protected void onPostExecute(String selectedImagePath) {
+                        Bitmap bm;
+                        bm = BitmapFactory.decodeFile(selectedImagePath, options);
+                        petImageView.setBackgroundResource(0);
+                        petImageView.setImageBitmap(bm);
+                    }
+                }.execute(data);
+                */
             }
         }
     }
 
+    private View.OnFocusChangeListener myFocus = new View.OnFocusChangeListener()
+    {
+        public void onFocusChange (View v,boolean hasFocus){
+            EditText editText = (EditText) v;
+            String text = editText.getText().toString();
+            String tag = editText.getTag().toString();
+            if ((hasFocus) && (text.equals(tag))){
+                ((EditText)v).setText("");
+            }
+            if ((!hasFocus)&&(text.equals(""))) {
+                ((EditText)v).setText(tag);
+            }
+        }
+    };
+
+
     public void saveBtnClick(View view) {
     }
 
+
+
     public void dateEditClick(View view) {
+        timeEdit();
+        dateEdit();
+    }
+
+    public void dateEdit(){
+        DialogFragment newFragment = new DatePickerFragment();
+        newFragment.show(getSupportFragmentManager(), "datePicker");
+    }
+
+    public void timeEdit(){
+        DialogFragment newFragmentT = new TimePickerFragment();
+        newFragmentT.show(getSupportFragmentManager(), "timePicker");
     }
 }
 

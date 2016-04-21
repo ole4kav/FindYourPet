@@ -54,14 +54,17 @@
                 android:layout_height="match_parent"
                 android:layout_weight="0.3">
 
-                <EditText
+                <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
-                    android:inputType="datetime"
                     android:text="Date"
+                    android:textSize="20dp"
+                    android:tag="Date"
                     android:ems="10"
+                    android:alpha="1.0"
                     android:id="@+id/dateEditText"
                     android:layout_weight="0.25"
+                    android:gravity="center_vertical"
                     android:onClick="dateEditClick"/>
 
                 <EditText
@@ -69,6 +72,8 @@
                     android:layout_height="match_parent"
                     android:inputType="textPostalAddress"
                     android:text="Address"
+                    android:tag="Address"
+                    android:textSize="20dp"
                     android:ems="10"
                     android:id="@+id/locationEditText"
                     android:layout_weight="0.25"/>
@@ -195,7 +200,6 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceLarge"
-                android:text="Large Text"
                 android:id="@+id/editText"/>
         </ScrollView>
     </LinearLayout>
@@ -204,13 +208,13 @@
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_weight="0.9">
+        android:layout_weight="0.85">
 
         <Button
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:id="@+id/saveButton"
-            android:text="SAVE"
+            android:text="NEXT"
             android:onClick="saveBtnClick"/>
     </LinearLayout>
 </LinearLayout>
