@@ -5,7 +5,6 @@
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
     <uses-permission android:name="android.permission.INTERNET"/>
-
     <uses-permission android:name="android.permission.CAMERA"/>
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
 
@@ -23,6 +22,13 @@
             </intent-filter>
         </activity>
         <activity android:name=".FoundActivity">
+        </activity>
+        <activity android:name=".ContactActivity">
+        </activity>
+        <activity android:name=".RegistrationPopup"
+            android:theme="@style/AppTheme.myPopup">
+        </activity>
+        <activity android:name=".LoginDialogFragment">
         </activity>
     </application>
 
