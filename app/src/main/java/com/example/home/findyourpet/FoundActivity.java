@@ -24,7 +24,6 @@ import android.support.v4.app.DialogFragment;
 import android.support.v7.app.AppCompatActivity;
 import android.util.TypedValue;
 import android.view.View;
-import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -50,9 +49,6 @@ public class FoundActivity extends AppCompatActivity
     private LocationManager locationManager;
     private LocationListener locationListener;
 
-    //private Looper myLooper;
-
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -67,13 +63,13 @@ public class FoundActivity extends AppCompatActivity
         locationTextView = (TextView) findViewById(R.id.locationEditText);
         dateTextView = (TextView) findViewById(R.id.dateEditText);
 
-        locationTextView.setOnFocusChangeListener(myFocus);
-        dateTextView.setOnFocusChangeListener(myFocus);
-
+        locationTextView.setOnFocusChangeListener(UIhelper.myFocus);
+        dateTextView.setOnFocusChangeListener(UIhelper.myFocus);
 
         locationManager = (LocationManager) getSystemService(LOCATION_SERVICE);
 
         locationListener = new LocationListener() {
+
             @Override
             public void onLocationChanged(Location location) {
                 globalLocation = location;
@@ -225,7 +221,7 @@ public class FoundActivity extends AppCompatActivity
                 petImageView.setBackgroundResource(0);
                 petImageView.setImageBitmap(thumbnail);
                 petImageView.setAlpha(1.0f);
-          }
+            }
             else if (requestCode == SELECT_FILE) {
 
                 Uri selectedImageUri = data.getData();
@@ -253,68 +249,9 @@ public class FoundActivity extends AppCompatActivity
                 petImageView.setBackgroundResource(0);
                 petImageView.setImageBitmap(bm);
                 petImageView.setAlpha(1.0f);
-
-
-                /*new AsyncTask<Intent, Void, String>()
-                {
-                    BitmapFactory.Options options = new BitmapFactory.Options();
-                        @Override
-                    protected String doInBackground(Intent... data) {
-                        //Looper.prepare();
-                        Uri selectedImageUri = data[0].getData();
-                        String[] projection = {MediaStore.MediaColumns.DATA};
-                        CursorLoader cursorLoader = new CursorLoader(getApplicationContext(), selectedImageUri, projection, null, null, null);
-                        Cursor cursor = cursorLoader.loadInBackground();
-                        int column_index = cursor.getColumnIndexOrThrow(MediaStore.MediaColumns.DATA);
-                        cursor.moveToFirst();
-                        String selectedImagePath = cursor.getString(column_index);
-                        options.inJustDecodeBounds = true;
-                        BitmapFactory.decodeFile(selectedImagePath, options);
-                        final int REQUIRED_SIZE = 200;
-                        int scale = 1;
-                        while (options.outWidth / scale / 2 >= REQUIRED_SIZE && options.outHeight / scale / 2 >= REQUIRED_SIZE) {
-                            scale *= 2;
-                        }
-                        options.inSampleSize = scale;
-                        options.inJustDecodeBounds = false;
-                        //myLooper = Looper.myLooper();
-                        //Looper.loop();
-                        //myLooper.quit();
-                        return null;
-                    }
-                    @Override
-                    protected void onPostExecute(String selectedImagePath) {
-                        Bitmap bm;
-                        bm = BitmapFactory.decodeFile(selectedImagePath, options);
-                        petImageView.setBackgroundResource(0);
-                        petImageView.setImageBitmap(bm);
-                    }
-                }.execute(data);
-                */
             }
         }
     }
-
-    private View.OnFocusChangeListener myFocus = new View.OnFocusChangeListener()
-    {
-        public void onFocusChange (View v,boolean hasFocus){
-            EditText editText = (EditText) v;
-            String text = editText.getText().toString();
-            String tag = editText.getTag().toString();
-            if ((hasFocus) && (text.equals(tag))){
-                ((EditText)v).setText("");
-            }
-            if ((!hasFocus)&&(text.equals(""))) {
-                ((EditText)v).setText(tag);
-            }
-        }
-    };
-
-
-    public void saveBtnClick(View view) {
-    }
-
-
 
     public void dateEditClick(View view) {
         timeEdit();
@@ -329,6 +266,11 @@ public class FoundActivity extends AppCompatActivity
     public void timeEdit(){
         DialogFragment newFragmentT = new TimePickerFragment();
         newFragmentT.show(getSupportFragmentManager(), "timePicker");
+    }
+
+    public void nextBtnClick(View view) {
+        Intent intent = new Intent(FoundActivity.this, RegistrationPopup.class);
+        startActivity(intent);
     }
 }
 
