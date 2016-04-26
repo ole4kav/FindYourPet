@@ -37,23 +37,20 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="textPersonName"
-            android:text="Name"
-            android:tag="Name"
+            android:hint="Name"
             android:ems="10"
             android:id="@+id/nameEditText"/>
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="phone"
-            android:text="Phone"
-            android:tag="Phone"
+            android:hint="Phone"
             android:ems="10"
             android:id="@+id/phoneEditText"/>
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Address"
-            android:tag="Address"
+            android:hint="Address"
             android:inputType="textPostalAddress"
             android:ems="10"
             android:id="@+id/addressEditText"/>
@@ -63,21 +60,21 @@
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:id="@+id/regLayout"
+        android:visibility="gone"
         android:layout_weight="2">
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="textEmailAddress"
             android:ems="10"
-            android:text="Email"
-            android:tag="Email"
+            android:hint="Email"
             android:id="@+id/emailEditText"/>
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="textPassword"
-            android:text="Password"
-            android:tag="Password"
+            android:hint="Password"
             android:ems="10"
             android:id="@+id/passwordEditText"/>
     </LinearLayout>

@@ -7,9 +7,9 @@
         android:id="@+id/editTextUserNameToLogin"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="User Name"
+        android:hint="EMAIL"
         android:ems="10" >
-        <requestFocus />
+        <requestFocus/>
     </EditText>
     <EditText
         android:id="@+id/editTextPasswordToLogin"
