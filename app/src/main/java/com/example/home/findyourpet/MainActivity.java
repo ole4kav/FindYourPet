@@ -20,5 +20,7 @@ public class MainActivity extends AppCompatActivity
     }
 
     public void lostBtnClick(View view) {
+        Intent intent = new Intent(MainActivity.this, LostActivity.class);
+        startActivity(intent);
     }
 }

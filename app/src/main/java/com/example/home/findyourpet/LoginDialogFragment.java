@@ -23,14 +23,14 @@ public class LoginDialogFragment extends Activity
         setContentView(R.layout.dialog_login);
 
         // create the instance of Databse
-        loginDataBaseAdapter=new LoginDataBaseAdapter(this);
+        loginDataBaseAdapter = new LoginDataBaseAdapter(this);
         try {
-            loginDataBaseAdapter=loginDataBaseAdapter.open();
+            loginDataBaseAdapter = loginDataBaseAdapter.open();
         }
         catch (SQLException e) {e.printStackTrace();}
 
         // Get The Refference Of Buttons
-        btnSignIn=(Button)findViewById(R.id.buttonSignIn);
+        btnSignIn = (Button)findViewById(R.id.buttonSignIn);
     }
 
 
@@ -43,8 +43,8 @@ public class LoginDialogFragment extends Activity
         dialog.setTitle("Login");
 
         // get the Refferences of views
-        final EditText editTextUserName=(EditText)dialog.findViewById(R.id.editTextUserNameToLogin);
-        final  EditText editTextPassword=(EditText)dialog.findViewById(R.id.editTextPasswordToLogin);
+        final EditText editTextUserName = (EditText)dialog.findViewById(R.id.editTextUserNameToLogin);
+        final  EditText editTextPassword = (EditText)dialog.findViewById(R.id.editTextPasswordToLogin);
 
         Button btnSignIn=(Button)dialog.findViewById(R.id.buttonSignIn);
 
@@ -52,8 +52,8 @@ public class LoginDialogFragment extends Activity
         btnSignIn.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 // get The User name and Password
-                String userName=editTextUserName.getText().toString();
-                String password=editTextPassword.getText().toString();
+                String userName = editTextUserName.getText().toString();
+                String password = editTextPassword.getText().toString();
 
                 // fetch the Password form database for respective user name
                 String storedPassword=loginDataBaseAdapter.getSinlgeEntry(userName);

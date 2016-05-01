@@ -26,7 +26,7 @@ public class RegistrationPopup extends Activity
     }
 
     public void yesRegPopupBtn(View view) {
-        Intent intent = new Intent(RegistrationPopup.this,LoginDialogFragment.class);
+        Intent intent = new Intent(RegistrationPopup.this, LoginDialogFragment.class);
         startActivity(intent);
         finish();
 

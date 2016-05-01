@@ -63,9 +63,6 @@ public class FoundActivity extends AppCompatActivity
         locationTextView = (TextView) findViewById(R.id.locationEditText);
         dateTextView = (TextView) findViewById(R.id.dateEditText);
 
-        locationTextView.setOnFocusChangeListener(UIhelper.myFocus);
-        dateTextView.setOnFocusChangeListener(UIhelper.myFocus);
-
         locationManager = (LocationManager) getSystemService(LOCATION_SERVICE);
 
         locationListener = new LocationListener() {
