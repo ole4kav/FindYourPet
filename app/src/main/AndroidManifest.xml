@@ -25,10 +25,13 @@
         </activity>
         <activity android:name=".ContactActivity">
         </activity>
-        <activity android:name=".RegistrationPopup"
+        <activity
+            android:name=".RegistrationPopup"
             android:theme="@style/AppTheme.myPopup">
         </activity>
         <activity android:name=".LoginDialogFragment">
+        </activity>
+        <activity android:name=".LostActivity">
         </activity>
     </application>
 
