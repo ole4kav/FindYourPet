@@ -32,7 +32,7 @@
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="New Button"
+            android:text="Add New"
             android:id="@+id/newLostButton"
             android:layout_weight="5"
             android:onClick="newLostBtnClick"/>
@@ -40,7 +40,7 @@
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="New Button"
+            android:text="Search"
             android:id="@+id/searchButton"
             android:layout_weight="5"
             android:onClick="searchBtnClick"/>
