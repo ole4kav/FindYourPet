@@ -33,6 +33,8 @@
         </activity>
         <activity android:name=".LostActivity">
         </activity>
+        <activity android:name=".NewLostAd">
+        </activity>
     </application>
 
 </manifest>
