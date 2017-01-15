@@ -8,22 +8,24 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.example.home.findyourpet.FoundActivity"
+    tools:context="com.olgav.android.findyourpet.NewFoundAd"
     android:orientation="vertical"
     android:focusable="true"
     android:focusableInTouchMode="true"
-    android:id="@+id/background">
+    android:id="@+id/background"
+    android:weightSum="10">
 
     <LinearLayout
         android:orientation="horizontal"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_weight="0.5">
+        android:layout_height="0dp"
+        android:layout_weight="4.5"
+        android:weightSum="10">
 
         <FrameLayout
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_weight="0.5">
+            android:layout_weight="5">
 
             <ImageView
                 android:layout_width="match_parent"
@@ -44,121 +46,129 @@
 
         <LinearLayout
             android:orientation="horizontal"
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_weight="0.5">
+            android:layout_weight="5"
+            android:weightSum="10">
 
             <LinearLayout
                 android:orientation="vertical"
-                android:layout_width="match_parent"
+                android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_weight="0.3">
+                android:layout_weight="7"
+                android:weightSum="10">
 
                 <TextView
                     android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
+                    android:layout_height="0dp"
                     android:hint="Date"
                     android:ems="10"
                     android:textSize="20dp"
                     android:id="@+id/dateEditText"
-                    android:layout_weight="0.25"
+                    android:layout_weight="2.5"
                     android:gravity="center_vertical"
                     android:onClick="dateEditClickLost"/>
 
                 <EditText
                     android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
+                    android:layout_height="0dp"
                     android:inputType="textPostalAddress|textCapWords|textNoSuggestions"
                     android:hint="Address"
                     android:textSize="20dp"
                     android:ems="10"
                     android:id="@+id/locationEditTextLostAd"
-                    android:layout_weight="0.25"/>
+                    android:layout_weight="2.5"/>
 
                 <RadioGroup
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
+                    android:layout_height="0dp"
                     android:orientation="horizontal"
-                    android:layout_weight="0.25">
+                    android:layout_weight="2.5"
+                    android:weightSum="10">
 
                     <RadioButton
-                        android:layout_width="match_parent"
+                        android:layout_width="0dp"
                         android:layout_height="match_parent"
-                        android:id="@+id/mTextViewLostAd"
+                        android:id="@+id/sexMRadioBtnL"
                         android:text="M"
                         android:gravity="center"
-                        android:layout_weight="0.5"/>
+                        android:layout_weight="5"/>
 
                     <RadioButton
-                        android:layout_width="match_parent"
+                        android:layout_width="0dp"
                         android:layout_height="match_parent"
-                        android:id="@+id/fTextViewLostAd"
+                        android:id="@+id/sexFRadioBtnL"
                         android:text="F"
                         android:gravity="center"
-                        android:layout_weight="0.5"/>
+                        android:layout_weight="5"/>
                 </RadioGroup>
 
                 <RadioGroup
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
+                    android:layout_height="0dp"
                     android:orientation="horizontal"
-                    android:layout_weight="0.25">
+                    android:layout_weight="2.5"
+                    android:weightSum="10">
 
                     <RadioButton
-                        android:layout_width="match_parent"
+                        android:layout_width="0dp"
                         android:layout_height="match_parent"
-                        android:id="@+id/yesTextViewLostAd"
+                        android:id="@+id/collarYRadioBtnL"
                         android:text="Yes"
                         android:gravity="center"
-                        android:layout_weight="0.5"/>
+                        android:layout_weight="5"/>
 
                     <RadioButton
-                        android:layout_width="match_parent"
+                        android:layout_width="0dp"
                         android:layout_height="match_parent"
-                        android:id="@+id/noTextViewLostAd"
+                        android:id="@+id/collarNRadioBtnL"
                         android:text="No"
                         android:gravity="center"
-                        android:layout_weight="0.5"/>
+                        android:layout_weight="5"/>
                 </RadioGroup>
             </LinearLayout>
 
             <LinearLayout
                 android:orientation="vertical"
-                android:layout_width="match_parent"
+                android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_weight="0.7"
-                android:weightSum="1">
+                android:layout_weight="3"
+                android:weightSum="10">
 
                 <ImageButton
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
+                    android:layout_height="0dp"
                     android:id="@+id/dateImageButtonLostAd"
-                    android:layout_weight="0.25"
+                    android:layout_weight="2.5"
                     android:onClick="dateBtnClickLost"
-                    android:src="@android:drawable/ic_menu_today"/>
+                    android:src="@android:drawable/ic_menu_today" />
 
                 <ImageButton
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
+                    android:layout_height="0dp"
                     android:id="@+id/locationImageButtonLostAd"
-                    android:layout_weight="0.25"
-                    android:src="@mipmap/ic_launcher"
-                    android:onClick="gpsBtnClickLost"/>
+                    android:layout_weight="2.5"
+                    android:onClick="gpsBtnClickLost"
+                    android:visibility="invisible"
+                    android:src="@android:drawable/ic_menu_mylocation" />
 
                 <TextView
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
+                    android:layout_height="0dp"
                     android:id="@+id/textViewLostAd"
                     android:text="SEX"
+                    android:textColor="#00f"
                     android:gravity="center"
-                    android:layout_weight="0.25"/>
+                    android:layout_weight="2.5"/>
 
                 <TextView
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
+                    android:layout_height="0dp"
                     android:id="@+id/textView1LostAd"
                     android:text="Collar"
-                    android:layout_weight="0.25"/>
+                    android:textColor="#00f"
+                    android:gravity="center"
+                    android:layout_weight="2.5"/>
             </LinearLayout>
         </LinearLayout>
     </LinearLayout>
@@ -166,8 +176,8 @@
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_weight="0.5">
+        android:layout_height="0dp"
+        android:layout_weight="4.5">
 
         <TextView
             android:layout_width="wrap_content"
@@ -182,7 +192,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="Color, size, is looks injured, collar, etc."
+            android:text="Color, size, is looks injured, etc."
             android:id="@+id/textView4LostAd"
             android:textSize="20dp"
             android:textStyle="italic"
@@ -196,6 +206,7 @@
             <EditText
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:hint="Tap her to enter description"
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 android:id="@+id/editTextLostAd"/>
         </ScrollView>
@@ -204,14 +215,16 @@
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_weight="0.85">
+        android:layout_height="0dp"
+        android:layout_weight="1">
 
         <Button
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:id="@+id/saveButtonLostAd"
             android:text="NEXT"
-            android:onClick="nextBtnClick"/>
+            android:textColor="#00f"
+            android:gravity="center"
+            android:onClick="nextLostAdBtnClick"/>
     </LinearLayout>
 </LinearLayout>

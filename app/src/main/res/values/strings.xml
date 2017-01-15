@@ -2,5 +2,8 @@
     <string name="app_name">Find Your Pet</string>
     <string name="yes">Yes</string>
     <string name="no">No</string>
+    <string name="ok">OK</string>
     <string name="dialog_text">Do you want to save your details?</string>
+    <string name="dialog_internet_text">Oops! Something went wrong. Please, check you internet or try later</string>
+    <string name="title_activity_maps">Map</string>
 </resources>

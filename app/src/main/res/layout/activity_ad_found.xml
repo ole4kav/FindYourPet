@@ -1,0 +1,232 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="com.olgav.android.findyourpet.NewFoundAd"
+    android:orientation="vertical"
+    android:focusable="true"
+    android:focusableInTouchMode="true"
+    android:id="@+id/background"
+    android:weightSum="10">
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="4.5"
+        android:weightSum="10">
+
+        <FrameLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="5">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/dogImageView"
+                android:layout_gravity="center"
+                android:background="@drawable/dog_profile"
+                android:alpha="0.5"/>
+
+            <ImageButton
+                android:layout_width="55dp"
+                android:layout_height="45dp"
+                android:id="@+id/cameraImageButton"
+                android:layout_gravity="right|bottom"
+                android:src="@drawable/camera"
+                android:onClick="photoBtnClick"/>
+        </FrameLayout>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="5"
+            android:weightSum="10">
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="7"
+                android:weightSum="10">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="0dp"
+                    android:hint="Date"
+                    android:ems="10"
+                    android:textSize="20dp"
+                    android:id="@+id/dateEditText"
+                    android:layout_weight="2.5"
+                    android:gravity="center_vertical"
+                    android:onClick="dateEditClick"/>
+
+                <EditText
+                    android:layout_width="wrap_content"
+                    android:layout_height="0dp"
+                    android:hint="Address"
+                    android:inputType="textPostalAddress|textCapWords|textNoSuggestions"
+                    android:ems="10"
+                    android:textSize="20dp"
+                    android:id="@+id/locationEditText"
+                    android:layout_weight="2.5"
+                    android:gravity="center_vertical" />
+
+                <RadioGroup
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:orientation="horizontal"
+                    android:layout_weight="2.5">
+
+                    <RadioButton
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:id="@+id/sexMRadioBtnF"
+                        android:text="M"
+                        android:gravity="center"
+                        android:layout_weight="5"/>
+
+                    <RadioButton
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:id="@+id/sexFRadioBtnF"
+                        android:text="F"
+                        android:gravity="center"
+                        android:layout_weight="5"/>
+                </RadioGroup>
+
+                <RadioGroup
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:orientation="horizontal"
+                    android:layout_weight="2.5"
+                    android:weightSum="10">
+
+                    <RadioButton
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:id="@+id/tookYRadioBtnF"
+                        android:text="Yes"
+                        android:gravity="center"
+                        android:layout_weight="5"/>
+
+                    <RadioButton
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:id="@+id/tookNRadioBtnF"
+                        android:text="No"
+                        android:gravity="center"
+                        android:layout_weight="5"/>
+                </RadioGroup>
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="3"
+                android:weightSum="10">
+
+                <ImageButton
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:id="@+id/dateImageButton"
+                    android:layout_weight="2.5"
+                    android:onClick="dateBtnClick"
+                    android:src="@android:drawable/ic_menu_today" />
+
+                <ImageButton
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:id="@+id/locationImageButton"
+                    android:layout_weight="2.5"
+                    android:onClick="gpsBtnClick"
+                    android:visibility="invisible"
+                    android:src="@android:drawable/ic_menu_mylocation"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:id="@+id/textView"
+                    android:text="SEX"
+                    android:gravity="center"
+                    android:layout_weight="2.5"
+                    android:textColor="#00f"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:id="@+id/textView1"
+                    android:text="If you took him?"
+                    android:textColor="#00f"
+                    android:gravity="center"
+                    android:layout_weight="2.5"/>
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="4.5">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="Description:"
+            android:id="@+id/textView2"
+            android:textSize="30dp"
+            android:textStyle="bold"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="Color, size, is looks injured, collar, etc."
+            android:id="@+id/textView4"
+            android:textSize="20dp"
+            android:textStyle="italic"
+            android:alpha="0.5"/>
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/scrollView">
+
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:hint="Tap her to enter description"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:id="@+id/editText"/>
+        </ScrollView>
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/saveButton"
+            android:text="NEXT"
+            android:textColor="#00f"
+            android:gravity="center"
+            android:onClick="nextBtnClick"/>
+    </LinearLayout>
+
+</LinearLayout>

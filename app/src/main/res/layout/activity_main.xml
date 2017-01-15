@@ -5,57 +5,62 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="@drawable/lost_found_box">
+    android:background="@drawable/lost_found_box"
+    android:weightSum="10">
 
     <LinearLayout
         android:orientation="horizontal"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="0.9">
+        android:layout_height="0dp"
+        android:layout_weight="8">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="WELCOME"
+            android:text=" WELCOME"
             android:textSize="70dp"
             android:textColor="#f11"
             android:textStyle="italic"
-            android:layout_gravity="center"/>
+            android:layout_gravity="center"
+            />
 
     </LinearLayout>
 
     <LinearLayout
         android:orientation="horizontal"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="0.1">
+        android:layout_height="0dp"
+        android:layout_weight="2"
+        android:weightSum="10">
 
         <LinearLayout
             android:orientation="horizontal"
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_weight="0.5"
+            android:layout_weight="5"
             android:gravity="center">
 
             <Button
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="FOUND"
+                android:text="I FOUND A PET"
+                android:textColor="#00f"
                 android:id="@+id/foundBtn"
                 android:onClick="foundBtnClick"/>
         </LinearLayout>
 
         <LinearLayout
             android:orientation="horizontal"
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_weight="0.5"
+            android:layout_weight="5"
             android:gravity="center">
 
             <Button
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="LOST"
+                android:text="I LOST A PET"
+                android:textColor="#00f"
                 android:id="@+id/lostBtn"
                 android:onClick="lostBtnClick"/>
         </LinearLayout>

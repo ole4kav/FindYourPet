@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "516902244929",
+    "firebase_url": "https://findyourpet-9ca26.firebaseio.com",
+    "project_id": "findyourpet-9ca26",
+    "storage_bucket": "findyourpet-9ca26.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:516902244929:android:1aa44cab02e06665",
+        "android_client_info": {
+          "package_name": "com.olgav.android.findyourpet"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "516902244929-or6k9u7kr67rd1fst0prfqb5artalk1b.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.olgav.android.findyourpet",
+            "certificate_hash": "D5B6757B049BEE2037C4F6096F20EED21F5B90AB"
+          }
+        },
+        {
+          "client_id": "516902244929-v8of0vuiid591cafttfskjl08occ7o8b.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCEDkF_kE99Mb1zfuaCbjz-TviE63A43Wo"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "516902244929-v8of0vuiid591cafttfskjl08occ7o8b.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
